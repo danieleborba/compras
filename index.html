@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Compras</title>
+
+	<!-- CSS -->
+	<link rel="shortcut icon" type="imagem/x-icon" href="img/debit-card.png">
+	<link href="css/materialize.css" type="text/css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="css/style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+	<!-- NAVBAR -->
+	<header>
+		<nav class="white" role="navigation" style="box-shadow: none;">
+			<div class="nav-wrapper">
+				<form>
+					<div class="hide-on-med-and-down">
+						<!-- "LOGIN" DO USUÁRIO -->
+						<ul class="left" id="ul">
+							<li>
+								<b class="blue-text text-darken-1">Login</b>
+							</li>
+							<li>
+								<div class="row">
+									<div class="col l8">
+										<input type="text" name="usuario" id="usuario">
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="row">
+									<div class="col l4">
+										<button type="button" class="btn waves-effect waves-light red" onclick="trocarNome()" id="botao">Entrar</button>
+									</div>
+								</div>
+							</li>
+						</ul>
+
+						<a href="#" class="brand-logo center blue-text">Carrinho de Compras</a>
+
+						<!-- "PERFIL" DO USUÁRIO -->
+						<ul class="right grey-text text-darken-3 hide-on-med-and-down">
+							<li style="font-size: 120%; margin-top: .4em">Olá, <span id="nome">Visitante</span>!</li>
+							<li>
+								<img src="img/user.png" id="image" width="60px" class="right">
+							</li>
+						</ul>
+					</div>
+
+					<!-- SIDENAV PARA MOBILE -->
+					<ul id="sidenav-mobile" class="sidenav">
+						<li>
+							<b class="blue-text text-darken-1">Login</b>
+						</li>
+						<li>
+							<div class="row">
+								<div class="col l8">
+									<input type="text" name="usuario" id="usuario">
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="row">
+								<div class="col l4">
+									<button type="button" class="btn waves-effect waves-light red" onclick="trocarNome()" id="botao">Entrar</button>
+								</div>
+							</div>
+						</li>
+						<li>Olá, <span id="nome2">Visitante</span>!</li>
+						<li>
+							<img src="img/user.png" id="image" width="50px" class="right">
+						</li>
+					</ul>
+				</form>
+				<a href="#" data-target="sidenav-mobile" class="sidenav-trigger"><i class="material-icons green-text">menu</i></a>
+			</div>
+		</nav>
+	</header>
+
+	<main>
+		<script type="text/javascript" src="js/script.js"></script>
+
+		<div class="container center">
+			<form>
+				<div class="row">
+					<fieldset style="border: 1px solid lightgrey; padding: 1em">
+						<div class="col s10 l12">
+
+							<!-- PRODUTOS -->
+							<table class="responsive-table center">
+								<tbody id="carrinho">
+									<tr class="center" id="produto1">
+										<td><img width="100px" src="img/computer.png"></td>
+										<td>Computador<br>R$500,00</td>
+										<!-- ADICIONAR AO CARRINHO -->
+										<td><i onclick="adicionarItem(1)" class="material-icons green-text" style="cursor: pointer;">add_circle</i></td>
+										<td>
+											<p id="quantidade1">0</p>
+										</td>
+										<!-- REMOVER DO CARRINHO -->
+										<td><i onclick="removerItem(1)" class="material-icons red-text" style="cursor: pointer;">remove_circle</i></td>
+										<td>
+											Total<br>R$<span id="total1">00,00</span>
+										</td>
+										<!-- REMOVER PRODUTO DA LISTA -->
+										<td><i onclick="removerProduto(1)" class="material-icons blue-text text-darken-1" style="cursor: pointer">delete</i></td>
+									</tr>
+									<tr id="produto2" id="produto2">
+										<td><img width="100px" src="img/plant.png"></td>
+										<td>Planta<br>R$5,00</td>
+										<!-- ADICIONAR AO CARRINHO -->
+										<td><i onclick="adicionarItem(2)" class="material-icons green-text" style="cursor: pointer;">add_circle</i></td>
+										<td>
+											<p id="quantidade2">0</p>
+										</td>
+										<!-- REMOVER DO CARRINHO -->
+										<td><i onclick="removerItem(2)" class="material-icons red-text" style="cursor: pointer;">remove_circle</i></td>
+										<td>
+											Total<br>R$<span id="total2">00,00</span>
+										</td>
+										<!-- REMOVER PRODUTO DA LISTA -->
+										<td><i onclick="removerProduto(2)" class="material-icons blue-text text-darken-1" style="cursor: pointer">delete</i></td>
+									</tr>
+									<tr id="produto3" id="produto3">
+										<td><img width="100px" src="img/lightsaber.png"></td>
+										<td>Lightsaber<br>R$3000,00</td>
+										<!-- ADICIONAR AO CARRINHO -->
+										<td><i onclick="adicionarItem(3)" class="material-icons green-text" style="cursor: pointer;">add_circle</i></td>
+										<td>
+											<p id="quantidade3">0</p>
+										</td>
+										<!-- REMOVER DO CARRINHO -->
+										<td><i onclick="removerItem(3)" class="material-icons red-text" style="cursor: pointer;">remove_circle</i></td>
+										<!-- REMOVER PRODUTO DA LISTA -->
+										<td>Total<br>R$<span id="total3">00,00</span></td>
+										<td><i onclick="removerProduto(3)" class="material-icons blue-text text-darken-1" style="cursor: pointer">delete</i></td>
+									</tr>
+								</tbody>
+							</table>
+							<br>
+						</div>
+						<!-- VALOR TOTAL DOS ITENS ADICIONADOS AO CARRINHO -->
+						<div class="s12 l6 offset-l6">
+							<h2 class="blue-text text-darken-1 flow-text">Valor Total da Compra: R$<span id="valorTotalCompra">00,00</span></h2>
+						</div>
+					</fieldset>
+					<br>
+					<!-- FINALIZA A COMPRA E RESETA O CARRINHO -->
+					<div class="col s12 l4 offset-l4">
+						<button class="btn waves-light waves-effect red white-text" onclick="finalizarCompra()">FINALIZAR COMPRA</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</main>
+</body>
+</html>
